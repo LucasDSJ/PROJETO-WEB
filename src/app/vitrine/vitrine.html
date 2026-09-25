@@ -1,23 +1,22 @@
-<div class="row">
-    <div class="card col-sm-12 col-md-6 col-lg-4 col-xl-4 col-xxl-3"        
-        *ngFor="let obj of lista">
-        <img src="{{obj.codigo}}.jpg" class="card-img-top h-50">
-        <h5 class="card-title">{{obj.nome}}</h5>
-        <div class="card-body" >
-            <div *ngIf="obj.valorPromo>0">
-                de: <s>R$ {{obj.valor}}</s><br>
-                por: R$ {{obj.valorPromo}}<br><br>      
-            </div>
-            <div *ngIf="obj.valorPromo==0">
-                por: R$ {{obj.valor}}<br>                
-            </div>
-            <button class="btn btn-outline-info w-50" (click)="verDetalhe(obj);">ver +</button>
-            <button class="btn btn-outline-success w-50" *ngIf="obj.quantidade>0"
-                >
-                comprar</button>
+<div class="row p-4 g-4" id="sessaoProdutos"> 
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3"         
+        *ngFor="let obj of lista"> 
+        <div class="card p-3" id="listaProdutos">
+            <img src="/{{obj.codigo}}.png" class="card-img-center img-fluid"> 
+            <h5 class="card-title mt-3">{{obj.nome}}</h5> 
+            <div class="card-body" > 
+                <div *ngIf="obj.valorPromo>0"> 
+                    de: <s>R$ {{obj.valor}}</s><br> 
+                    por: R$ {{obj.valorPromo}}<br><br>       
+                </div> 
+                <div *ngIf="obj.valorPromo==0"> 
+                    por: R$ {{obj.valor}}<br>                 
+                </div> 
+                <button class="btn btn-outline-info w-50" (click)="verDetalhe(obj);">ver +</button> 
+                <button class="btn btn-outline-success w-50" *ngIf="obj.quantidade>0" 
+                    > 
+                    comprar</button> 
+            </div> 
         </div>
-    </div>
-
-
-
- </div>   
+    </div> 
+</div>

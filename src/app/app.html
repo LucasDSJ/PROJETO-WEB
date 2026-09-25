@@ -1,13 +1,136 @@
-<header class="bg-dark text-light">
-    <img src="logotipo.jpg" class="w-25"><br>
-    <nav class="btn-group">
-        <a href="login"  class="btn btn-secondary">meu cadastro</a> 
-        <a href="pedidos"  class="btn btn-secondary">meus pedidos</a> 
-        <a href="promo"  class="btn btn-secondary">promoções</a> 
-        <a href="cesta"  class="btn btn-secondary">carrinho</a>
+<header class="text-light shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark container py-3">
+
+        <!-- Logo -->
+        <a href="/" class="navbar-brand">
+            <img src="./logo.png" class="img-fluid" style="max-height: 100px;">
+        </a>
+        <p class="aldrich-regular mt-2 fs-1">Camisetas Ipiranga</p>
+
+        <!-- Botão mobile -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#menuNavbar"
+            aria-controls="menuNavbar"
+            aria-expanded="false"
+            aria-label="Abrir menu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <div class="collapse navbar-collapse" id="menuNavbar">
+            <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                <li class="nav-item">
+                    <a href="login" class="nav-link px-3">
+                        Meu cadastro
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="pedidos" class="nav-link px-3">
+                        Meus pedidos
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="promo" class="nav-link px-3">
+                        Promoções
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a
+                        href="cesta"
+                        class="btn btn-light text-dark px-4 ms-lg-2"
+                    >
+                        🛒 Carrinho
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
     </nav>
 </header>
-<router-outlet />
-<footer class="bg-secondary text-light text-end">
-    Telefone: (11) 2344-2344<br>email:teste@teste.com<br>Rua frei joao, 59  
+
+
+<!-- Conteúdo das páginas -->
+<main class="min-vh-100">
+    <router-outlet></router-outlet>
+</main>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-light border-top border-secondary">
+
+    <div class="container py-5">
+
+        <div class="row g-4">
+
+            <!-- Sobre -->
+            <div class="col-12 col-md-4">
+                <h5 class="fw-bold mb-3">Nossa loja</h5>
+
+                <p class="text-secondary mb-0">
+                    Encontre os melhores produtos com qualidade,
+                    segurança e praticidade.
+                </p>
+            </div>
+
+            <!-- Contato -->
+            <div class="col-12 col-md-4">
+                <h5 class="fw-bold mb-3">Contato</h5>
+
+                <p class="mb-2">
+                    ☎ (11) 2344-2344
+                </p>
+
+                <p class="mb-2">
+                    ✉ teste@teste.com
+                </p>
+
+                <p class="mb-0">
+                    📍 Rua Frei João, 59
+                </p>
+            </div>
+
+            <!-- Links -->
+            <div class="col-12 col-md-4">
+                <h5 class="fw-bold mb-3">Navegação</h5>
+
+                <a href="login"
+                   class="d-block text-secondary text-decoration-none mb-2">
+                    Meu cadastro
+                </a>
+
+                <a href="pedidos"
+                   class="d-block text-secondary text-decoration-none mb-2">
+                    Meus pedidos
+                </a>
+
+                <a href="promo"
+                   class="d-block text-secondary text-decoration-none mb-2">
+                    Promoções
+                </a>
+
+                <a href="cesta"
+                   class="d-block text-secondary text-decoration-none">
+                    Carrinho
+                </a>
+            </div>
+
+        </div>
+
+        <hr class="border-secondary my-4">
+
+        <div class="text-center text-secondary small">
+            © 2026 Nossa Loja. Todos os direitos reservados.
+        </div>
+
+    </div>
+
 </footer>
