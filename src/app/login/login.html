@@ -1,16 +1,65 @@
-<h3>Faça seu login</h3>
-<div class="alert alert-danger"><strong>Verifique!</strong> Email ou senha invalidos!!!</div>
-<div class="row">
-    <div class="col">
-        preencha seus dados abaixo:<br>
-        <label>email:</label><input type="email" id="txtEmail" class="form-control"><br>
-        <label>senha:</label><input type="password" id="txtSenha" class="form-control"><br>
-        <button class="btn btn-success w-50">entrar</button>
-    </div>
-    <div class="col">
-        ainda não tem cadastro: <br><a href="cadastro" 
-        class="btn btn-info w-50">novo cadastro</a><br>
-        <br>esqueceu sua senha: <br><a href="esqueceu" 
-        class="btn btn-warning w-50">reenvio de senha</a>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5">
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-body p-4 p-sm-5">
+
+                    <!-- CABEÇALHO -->
+                    <div class="text-center mb-4 p-3 border border-primary rounded-4">
+                        <h2 class="fw-bold mb-2 text-primary">Bem-vindo</h2>
+
+                        <p class="text-muted mb-0">
+                            Entre na sua conta para continuar
+                        </p>
+                    </div>
+
+                    <!-- ALERTA -->
+                    <!--
+                    <div class="alert alert-danger rounded-3 small" role="alert">
+                        <strong>Verifique!</strong>
+                        E-mail ou senha inválidos.
+                    </div>
+                    -->
+
+                    <!-- FORMULÁRIO -->
+                    <form>
+                        <!-- E-MAIL -->
+                        <div class="mb-3">
+                            <label for="txtEmail" class="mt-3 form-label fw-semibold">E-mail</label>
+                            <input type="email" id="txtEmail" class="form-control form-control-lg rounded-3 border border-primary" placeholder="Digite seu e-mail">
+                        </div>
+
+                        <!-- SENHA -->
+                        <div class="mb-2">
+                            <label for="txtSenha" class="form-label fw-semibold">Senha</label>
+                            <input type="password" id="txtSenha" class="form-control form-control-lg rounded-3 border border-primary" placeholder="Digite sua senha">
+                        </div>
+
+                        <!-- RECUPERAR SENHA -->
+                        <div class="text-end mb-4">
+                            <a href="esqueceu" class="text-decoration-none small">
+                                Esqueceu sua senha?
+                            </a>
+                        </div>
+
+                        <!-- ENTRAR -->
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fw-semibold py-3">
+                            Entrar
+                        </button>
+                    </form>
+
+                    <!-- CADASTRO -->
+                    <div class="text-center mt-4 pt-4 border-top">
+                        <p class="text-muted mb-2">
+                            Ainda não possui uma conta?
+                        </p>
+                        <a href="cadastro" class="fw-semibold text-decoration-none">
+                            Criar uma conta
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
