@@ -1,33 +1,126 @@
-<h3>Cadastro</h3>
-<div class="alert alert-success">Cadastro atualizado</div>
-<form class="was-validated">
-    <label class="form-label">nome:</label>
-    <input type="text" id="txtNome" class="form-control" required>
-    <div class="invalid-feedback">Nome é obrigatório!</div>
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-8">
+            <div class="card border-0 shadow-lg rounded-4">
+                <div class="card-body p-4 p-sm-5">
 
-    <label class="form-label">documento:</label>
-    <input type="text" id="txtDocumento" class="form-control" required>
-    <div class="invalid-feedback">Documento é obrigatório!</div>
+                    <!-- CABEÇALHO -->
+                    <div class="text-center mb-4 p-3 border border-primary rounded-4">
+                        <h2 class="fw-bold mb-2 text-primary">Cadastro</h2>
+                        <p class="text-muted mb-0">Preencha seus dados para criar sua conta</p>
+                    </div>
 
-    <label class="form-label">e-mail:</label>
-    <input type="email" id="txtEmail" class="form-control" required>
-    <div class="invalid-feedback">email é obrigatório!</div>
+                    <!-- ALERTA -->
+                    <!--
+                    <div class="alert alert-success rounded-3 small" role="alert">
+                        <strong>Sucesso!</strong>
+                        Cadastro atualizado.
+                    </div>
+                    -->
 
-    <label class="form-label">senha:</label>
-    <input type="password" id="txtSenha" class="form-control" required
-    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
-    <div class="invalid-feedback">A senha deve conter pelo menos 8 caracteres, incluindo uma letra maiúscula, uma letra minúscula, um número e um caractere especial (@$!%*?&).</div>
+                    <!-- FORMULÁRIO -->
+                    <form class="was-validated">
+                        <div class="row">
+                            <!-- NOME -->
+                            <div class="col-12 mb-3">
+                                <label for="txtNome" class="mt-3 form-label fw-semibold">Nome</label>
+                                <input type="text" id="txtNome" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Digite seu nome" required>
+                                <!-- <div class="invalid-feedback">
+                                    Nome é obrigatório!
+                                </div> -->
+                            </div>
 
-    <label class="form-label">telefone:</label>
-    <input type="text" id="txtTelefone" class="form-control" required 
-    pattern="[0-9]{4,5}-[0-9]{4}">
-    <div class="invalid-feedback">Informe um telefone valido!</div>
+                            <!-- DOCUMENTO -->
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="txtDocumento" class="form-label fw-semibold">CPF</label>
+                                <input type="text" id="txtDocumento" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Digite seu documento" required>
+                                <!-- <div class="invalid-feedback">
+                                    Documento é obrigatório!
+                                </div> -->
+                            </div>
 
-    <label class="form-label">endereço:</label>
-    <textarea id="txtTelefone" class="form-control" required rows="5">
-        </textarea>
-    <div class="invalid-feedback">Informe um endereço completo!</div>
+                            <!-- E-MAIL -->
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="txtEmail" class="form-label fw-semibold">E-mail</label>
+                                <input type="email" id="txtEmail" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Digite seu e-mail" required>
 
-    <br><button class="btn btn-success w-100">gravar</button>
+                                <!-- <div class="invalid-feedback">
+                                    E-mail é obrigatório!
+                                </div> -->
+                            </div>
 
-</form>
+                            <!-- TELEFONE -->
+                            <div class="col-12 col-lg-6 mb-3">
+                                <label for="txtTelefone" class="form-label fw-semibold">Telefone</label>
+                                <input type="text" id="txtTelefone" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Ex.: 99999-9999" required
+                                    pattern="[0-9]{4,5}-[0-9]{4}"
+                                >
+                                <!-- <div class="invalid-feedback">
+                                    Informe um telefone válido!
+                                </div> -->
+                            </div>
+
+                            <!-- ENDEREÇO -->
+                            <div class="col-12 col-lg-6 mb-4">
+                                <label for="txtEndereco" class="form-label fw-semibold">
+                                    CEP
+                                </label>
+                                <input id="txtEndereco" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Digite seu CEP" required>
+
+                                <!-- <div class="invalid-feedback">
+                                    Informe um CEP válido!
+                                </div> -->
+                            </div>
+
+                            <!-- SENHA -->
+                            <div class="col-12 mb-3">
+                                <label for="txtSenha" class="form-label fw-semibold">Senha</label>
+                                <input type="password" id="txtSenha" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Digite sua senha" required
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                <!-- <div class="invalid-feedback">
+                                    A senha deve conter pelo menos 8 caracteres,
+                                    incluindo uma letra maiúscula, uma letra minúscula,
+                                    um número e um caractere especial (@$!%*?&).
+                                </div> -->
+                            </div>
+                            <div class="col-12 mb-4">
+                                <label for="txtConfirmaSenha" class="form-label fw-semibold">Confirme sua senha</label>
+                                <input type="password" id="txtConfirmaSenha" class="form-control form-control-lg rounded-3 border border-primary"
+                                    placeholder="Confirme sua senha" required
+                                    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$">
+                                <!-- <div class="invalid-feedback">
+                                    A senha deve conter pelo menos 8 caracteres,
+                                    incluindo uma letra maiúscula, uma letra minúscula,
+                                    um número e um caractere especial (@$!%*?&).
+                                </div> -->
+                            </div>
+
+                        </div>
+
+                        <!-- GRAVAR -->
+                        <button type="submit" class="btn btn-primary btn-lg w-100 rounded-3 fw-semibold py-3">
+                            Criar conta
+                        </button>
+
+                    </form>
+
+                    <!-- LOGIN -->
+                    <div class="text-center mt-4 pt-4 border-top">
+                        <p class="text-muted mb-2">Já possui uma conta?</p>
+                        <a href="login" class="fw-semibold text-decoration-none">
+                            Fazer login
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+```
