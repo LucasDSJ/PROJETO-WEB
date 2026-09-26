@@ -72,6 +72,19 @@ export class Cesta {
 ]
 ;
 
+aumentaQuantidade(obj: ItemCesta) {
+    obj.qtd += 1;
+
+    let valorProduto = obj.produto.valor;
+
+    if (obj.produto.valorPromo > 0) {
+        valorProduto = obj.produto.valorPromo;
+    }
+
+    obj.valorTotal += valorProduto;
+    this.valorCesta += valorProduto;
+}
+
   ngOnInit(){
     this.valorCesta = 0;
     for(let obj of this.lista){
