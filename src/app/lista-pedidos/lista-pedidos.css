@@ -1,0 +1,42 @@
+.produto-imagem {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+
+    border: 2px solid #dee2e6;
+    border-radius: 1rem;
+
+    flex-shrink: 0;
+}
+
+.produto-imagem img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
+
+.descricao-produto {
+    max-width: 450px;
+}
+
+.produto-mobile {
+    min-width: 0;
+}
+
+.produto-nome {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.descricao-mobile {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}

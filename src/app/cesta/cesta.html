@@ -1,161 +1,188 @@
-<div class="container py-5">
+<div class="container py-4 py-md-5">
 
-    <h3 class="fw-bold text-primary mb-3">Cesta</h3>
+    <h3 class="fw-bold text-primary mb-3">
+        Cesta
+    </h3>
 
-    <div class="alert alert-warning rounded-3 shadow-sm" *ngIf="mensagem.length>0">
-        {{mensagem}}
+    <div class="alert alert-warning rounded-3 shadow-sm"
+        *ngIf="mensagem.length > 0">
+        {{ mensagem }}
     </div>
 
-    <br>
+    <!-- ================================================= -->
+    <!-- DESKTOP / TABLET                                  -->
+    <!-- ================================================= -->
+    <div class="d-none d-md-block">
+        <div class="table-responsive">
+            <table class="table align-middle mb-0 border border-2 rounded-4 overflow-hidden">
+                <!-- CABEÇALHO -->
+                <thead>
+                    <tr class="bg-light border-bottom border-2 border-primary">
+                        <td class="py-3 px-3"></td>
 
-<div class="table-responsive">
+                        <td class="fw-bold py-3 px-3">
+                            Produto
+                        </td>
+                        <td class="fw-bold text-center text-nowrap py-3 px-3">
+                            Quantidade
+                        </td>
+                        <td class="fw-bold text-center text-nowrap py-3 px-3">
+                            Valor
+                        </td>
 
-    <table class="table align-middle mb-0 border border-2 rounded-4 overflow-hidden">
+                        <td class="py-3 px-3"></td>
+                    </tr>
+                </thead>
 
-        <!-- CABEÇALHO -->
-        <thead>
-            <tr class="bg-light border-bottom border-2 border-primary">
+                <!-- PRODUTOS -->
+                <tbody>
+                    <tr *ngFor="let obj of lista"
+                        class="border-bottom border-1 border-primary">
 
-                <td class="py-3 px-3"></td>
+                        <!-- IMAGEM -->
+                        <td class="text-center px-3 py-4">
+                            <div class="produto-imagem">
+                                <img src="/{{ obj.produto.codigo }}.png"
+                                    class="img-fluid">
+                            </div>
+                        </td>
 
-                <td class="fw-bold py-3 px-3">
-                    Produto
-                </td>
+                        <!-- PRODUTO -->
+                        <td class="py-4 px-3">
+                            <div class="fw-bold fs-6 mb-1">
+                                {{ obj.produto.nome }}
+                            </div>
+                            <small class="text-muted d-block descricao-produto">
+                                {{ obj.produto.descritivo }}
+                            </small>
+                        </td>
 
-                <td class="fw-bold text-center text-nowrap py-3 px-3">
-                    Quantidade
-                </td>
+                        <!-- QUANTIDADE -->
+                        <td class="text-center text-nowrap py-4 px-3">
+                            <div class="d-inline-flex align-items-center justify-content-center border border-2 rounded-3 bg-light px-3 py-2">
+                                <span class="fw-bold">
+                                    {{ obj.qtd }}
+                                </span>
+                            </div>
+                        </td>
 
-                <td class="fw-bold text-center text-nowrap py-3 px-3">
-                    Valor
-                </td>
+                        <!-- VALOR -->
+                        <td class="text-center text-nowrap py-4 px-3">
+                            <span class="fw-bold fs-6">
+                                R$ {{ obj.valorTotal | number:'1.2-2' }}
+                            </span>
+                        </td>
 
-                <td class="py-3 px-3"></td>
+                        <!-- REMOVER -->
+                        <td class="text-center px-3 py-4">
+                            <button
+                                class="btn btn-outline-danger rounded-3 fw-bold d-inline-flex align-items-center justify-content-center"
+                                style="width: 40px; height: 40px;">
+                                ×
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
 
-            </tr>
-        </thead>
+                <!-- TOTAL -->
+                <tfoot>
+                    <tr class="bg-light border-top border-2 border-primary">
+                        <td colspan="3" class="text-end py-4 px-3">
+                            <span class="fw-semibold">
+                                Total da cesta
+                            </span>
+                        </td>
+                        <td class="text-center text-nowrap py-4 px-3">
+                            <span class="fw-bold fs-5 text-primary">
+                                R$ {{ valorCesta | number:'1.2-2' }}
+                            </span>
+                        </td>
+                        
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
 
-        <!-- PRODUTOS -->
-        <tbody>
+    <!-- ================================================= -->
+    <!-- MOBILE                                             -->
+    <!-- ================================================= -->
+    <div class="d-md-none">
+        <div *ngFor="let obj of lista"
+            class="bg-light produto-mobile border border-2 border-primary rounded-4 mb-3 p-3">
 
-            <tr *ngFor="let obj of lista" class="border-bottom border-1 border-primary">
+            <!-- PRODUTO -->
+            <div class="d-flex align-items-center gap-3">
 
                 <!-- IMAGEM -->
-                <td class="text-center px-3 py-4">
+                <div class="produto-imagem flex-shrink-0">
+                    <img src="/{{ obj.produto.codigo }}.png" class="img-fluid">
+                </div>
 
-                    <div
-                        class="d-flex align-items-center justify-content-center bg-white border border-2 rounded-4 mx-auto"
-                        style="width: 90px; height: 90px;"
-                    >
-                        <img
-                            src="/{{obj.produto.codigo}}.png"
-                            class="img-fluid"
-                            style="width: 72px; height: 72px; object-fit: contain;"
-                        >
+                <!-- INFORMAÇÕES -->
+                <div class="flex-grow-1 min-w-0 pe-1">
+
+                    <div class="fw-bold produto-nome">
+                        {{ obj.produto.nome }}
                     </div>
-
-                </td>
-
-                <!-- PRODUTO -->
-                <td class="py-4 px-3">
-
-                    <div class="fw-bold fs-6 mb-1">
-                        {{obj.produto.nome}}
-                    </div>
-
-                    <small
-                        class="text-muted d-block"
-                        style="max-width: 450px;"
-                    >
-                        {{obj.produto.descritivo}}
+                    <small class="text-muted descricao-mobile">
+                        {{ obj.produto.descritivo }}
                     </small>
 
-                </td>
-
-                <!-- QUANTIDADE -->
-                <td class="text-center text-nowrap py-4 px-3">
-
-                    <div
-                        class="d-inline-flex align-items-center justify-content-center border border-2 rounded-3 bg-light px-3 py-2"
-                    >
-                        <span class="fw-bold">
-                            {{obj.qtd}}
-                        </span>
-                    </div>
-
-                    <!-- FUNÇÃO PARA AUMENTAR QUANTIDADE DE ITEMS,
-                         NÃO ATIVAR ATÉ QUE SEJA RESOLVIDO
-
-                    <span
-                        class="badge bg-primary rounded-pill px-3 py-2"
-                        (click)="aumentaQuantidade(obj)"
-                    >
-                        +
-                    </span>
-
-                    -->
-
-                </td>
-
-                <!-- VALOR -->
-                <td class="text-center text-nowrap py-4 px-3">
-
-                    <span class="fw-bold fs-6">
-                        R$ {{obj.valorTotal | number:'1.2-2' }}
-                    </span>
-
-                </td>
+                </div>
 
                 <!-- REMOVER -->
-                <td class="text-center px-3 py-4">
+                <button
+                    class="btn btn-outline-danger rounded-3 fw-bold d-flex align-items-center justify-content-center flex-shrink-0"
+                    style="width: 38px; height: 38px;">
+                    ×
+                </button>
 
-                    <button
-                        class="btn btn-outline-danger rounded-3 fw-bold d-inline-flex align-items-center justify-content-center"
-                        style="width: 40px; height: 40px;"
-                    >
-                        ×
-                    </button>
+            </div>
 
-                </td>
-
-            </tr>
-
-        </tbody>
-
-        <!-- TOTAL -->
-        <tfoot>
-
-            <tr class="bg-light border-top border-2 border-primary">
-
-                <td colspan="3" class="text-end py-4 px-3">
-
-                    <span class="fw-semibold">
-                        Total da cesta
+            <!-- QUANTIDADE + VALOR -->
+            <div class="d-flex align-items-end justify-content-between mt-3 pt-3 border-top">
+                <!-- QUANTIDADE -->
+                <div>
+                    <small class="text-muted d-block mb-1">
+                        Quantidade
+                    </small>
+                    <span class="fw-bold border border-1 border-primary rounded-3 bg-light px-3 py-1 d-inline-block">
+                        {{ obj.qtd }}
                     </span>
+                </div>
 
-                </td>
-
-                <td class="text-center text-nowrap py-4 px-3">
-
-                    <span class="fw-bold fs-5 text-primary">
-                        R$ {{valorCesta | number:'1.2-2'}}
+                <!-- VALOR -->
+                <div class="text-end border-2 border-bottom border-primary">
+                    <small class="text-muted d-block mb-1">
+                        Valor
+                    </small>
+                    <span class="fw-bold text-primary">
+                        R$ {{ obj.valorTotal | number:'1.2-2' }}
                     </span>
+                </div>
+            </div>
+        </div>
 
-                </td>
+        <!-- TOTAL MOBILE -->
+        <div class="d-flex align-items-center justify-content-between 
+                    bg-light border border-2 border-primary rounded-4 p-3 mt-4">
 
-                <td></td>
+            <span class="fw-semibold">
+                Total da cesta
+            </span>
 
-            </tr>
+            <span class="fw-bold fs-5 text-primary">
+                R$ {{ valorCesta | number:'1.2-2' }}
+            </span>
+        </div>
+    </div>
 
-        </tfoot>
-
-    </table>
-
-</div>
-
-
+    <!-- ================================================= -->
+    <!-- BOTÕES                                             -->
+    <!-- ================================================= -->
     <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
-
         <button class="btn btn-outline-danger flex-sm-fill rounded-3 py-3 fw-semibold">
             Limpar cesta
         </button>
@@ -167,7 +194,6 @@
         <button class="btn btn-primary flex-sm-fill rounded-3 py-3 fw-semibold shadow-sm">
             Gravar pedido
         </button>
-
     </div>
 
 </div>
