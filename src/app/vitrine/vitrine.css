@@ -8,3 +8,8 @@
 #listaProdutos {
     background-color: rgba(235, 235, 235, 0.26);
 }
+
+.card {
+    min-height: 200px;
+}
+

@@ -1,22 +1,39 @@
-<div class="row p-4 g-4" id="sessaoProdutos"> 
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3"         
-        *ngFor="let obj of lista"> 
-        <div class="card p-3" id="listaProdutos">
-            <img src="/{{obj.codigo}}.png" class="card-img-center img-fluid"> 
-            <h5 class="card-title mt-3">{{obj.nome}}</h5> 
-            <div class="card-body" > 
-                <div *ngIf="obj.valorPromo>0"> 
-                    de: <s>R$ {{obj.valor}}</s><br> 
-                    por: R$ {{obj.valorPromo}}<br><br>       
-                </div> 
-                <div *ngIf="obj.valorPromo==0"> 
-                    por: R$ {{obj.valor}}<br>                 
-                </div> 
-                <button class="btn btn-outline-info w-50" (click)="verDetalhe(obj);">ver +</button> 
-                <button class="btn btn-outline-success w-50" *ngIf="obj.quantidade>0" 
-                    > 
-                    comprar</button> 
-            </div> 
+<div class="row p-4 g-4" id="sessaoProdutos">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 col-xxl-3" *ngFor="let obj of lista">
+        <div class="card p-3 fonte h-100 shadow-sm border border-1 border-primary rounded-5" id="listaProdutos">
+
+            <img src="/{{obj.codigo}}.png" class="card-img-top img-fluid shadow-sm" alt="{{obj.nome}}">
+
+            <h5 class="card-title mt-3">
+                {{obj.nome}}
+            </h5>
+
+            <div class="card-body d-flex flex-column">
+
+                <div *ngIf="obj.valorPromo > 0">
+                    de: <s>R$ {{obj.valor | number:'1.2-2' }}</s><br>
+                    por: R$ {{obj.valorPromo | number:'1.2-2' }}<br><br>
+                </div>
+
+                <div *ngIf="obj.valorPromo == 0">
+                    por: R$ {{obj.valor | number:'1.2-2' }}<br><br>
+                </div>
+
+                <!-- mt-auto empurra os botões para o final do card -->
+                <div class="d-flex gap-2 mt-auto">
+
+                    <button class="btn btn-outline-primary btn-lg flex-fill" (click)="verDetalhe(obj)">
+                        Ver +
+                    </button>
+
+                    <button class="btn btn-outline-success btn-lg flex-fill" *ngIf="obj.quantidade > 0">
+                        Comprar
+                    </button>
+
+                </div>
+
+            </div>
         </div>
-    </div> 
+
+    </div>
 </div>

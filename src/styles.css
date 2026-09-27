@@ -17,6 +17,8 @@ app-root {
 * {
     box-sizing: border-box;
 }
+
+/* COR DE BACKGROUND */
 .azul-gradiente {
     background: linear-gradient(15deg, #3a2dff 0.000%, #3c34ff 3.030%, #3f3bff 6.061%, #4143ff 9.091%, #444cff 12.121%, #4756ff 15.152%, #4a60ff 18.182%, #4c6aff 21.212%, #4e74ff 24.242%, #4f7eff 27.273%, #5087ff 30.303%, #5191ff 33.333%, #5199ff 36.364%, #50a1ff 39.394%, #4fa8ff 42.424%, #4eafff 45.455%, #4cb4ff 48.485%, #4ab8ff 51.515%, #47bbff 54.545%, #45bdff 57.576%, #42beff 60.606%, #3fbdff 63.636%, #3cbbff 66.667%, #3ab8ff 69.697%, #38b4ff 72.727%, #36aeff 75.758%, #35a8ff 78.788%, #34a1ff 81.818%, #3499ff 84.848%, #3490ff 87.879%, #3587ff 90.909%, #367dff 93.939%, #3873ff 96.970%, #3a69ff 100.000%);
 }
@@ -27,4 +29,13 @@ app-root {
   font-weight: 400;
   font-style: normal;
 }
+
+.titulo-responsivo {
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+header .botao-hover:hover .nav-link {
+    color: rgb(77, 148, 255) !important;
+}
+
 
