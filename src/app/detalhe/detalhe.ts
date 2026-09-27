@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Produto } from '../model/produto';
 import { CommonModule } from '@angular/common';
+import { Location } from '@angular/common';
 
 @Component({
   imports: [CommonModule],
@@ -8,7 +9,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './detalhe.css',
   templateUrl: './detalhe.html',
 })
+
 export class Detalhe {
+  constructor(private location: Location) {}
+
     obj:Produto = new Produto();
     //evento apos o componente ser carregado
     ngOnInit(){
@@ -19,5 +23,7 @@ export class Detalhe {
         location.href="./vitrine";
       }
     }
-  
+ voltar(): void {
+  this.location.back();
+} 
 }

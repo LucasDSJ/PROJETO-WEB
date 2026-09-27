@@ -1,21 +1,85 @@
-<div class="row">
-    <div class="col-6 card">
-        <img src="/{{obj.codigo}}.png" class="card-img-top w-50">
-    </div>    
-    <div class="col-6 card">
-        <h5 class="card-title">{{obj.nome}}</h5>        
-        <div class="card-body" >
-            <div class="card-text">{{obj.descritivo}}</div>
-            <div *ngIf="obj.valorPromo>0">
-                de: <s>R$ {{obj.valor}}</s><br>
-                por: R$ {{obj.valorPromo}}<br><br>      
+<div class="row p-4 g-4" id="sessaoProdutos">
+
+    <div class="col-lg-9 col-md-12 container mt-5 mb-5">
+
+        <button
+            class="btn btn-outline-primary btn-lg mb-4"
+            (click)="voltar()">
+            ← Voltar
+        </button>
+
+        <div class="card p-4 fonte shadow-lg border border-1 border-primary rounded-5">
+
+            <div class="row g-4 align-items-center">
+
+                <!-- Imagem -->
+                <div class="col-12 col-md-6 text-center">
+
+                    <img src="/{{obj.codigo}}.png"
+                         class="img-fluid shadow-sm"
+                         alt="{{obj.nome}}">
+
+                </div>
+
+                <!-- Informações -->
+                <div class="col-12 col-md-6">
+
+                    <div class="border-top border-bottom border-1 border-primary rounded-4 p-4">
+
+                        <h2 class="card-title mb-4">
+                            {{obj.nome}}
+                        </h2>
+
+                        <div class="border border-1 border-secondary rounded-3 p-3 mb-4">
+                            <div class="card-text fs-5">
+                                {{obj.descritivo}}
+                            </div>
+                        </div>
+
+                        <div class="border border-1 border-secondary rounded-3 p-3 mb-4 fs-5">
+
+                            <div *ngIf="obj.valorPromo > 0">
+                                De:
+                                <s>R$ {{obj.valor | number:'1.2-2' }}</s>
+                                <br>
+
+                                <strong>
+                                    Por: R$ {{obj.valorPromo | number:'1.2-2' }}
+                                </strong>
+                            </div>
+
+                            <div *ngIf="obj.valorPromo == 0">
+                                <strong>
+                                    Por: R$ {{obj.valor | number:'1.2-2' }}
+                                </strong>
+                            </div>
+
+                        </div>
+
+                        <button
+                            class="btn btn-outline-success btn-lg w-100"
+                            *ngIf="obj.quantidade > 0">
+                            Comprar
+                        </button>
+
+                        <div
+                            class="border border-1 border-danger rounded-3 p-3 text-center"
+                            *ngIf="obj.quantidade == 0">
+
+                            <h4 class="text-danger mb-0">
+                                Sem Estoque
+                            </h4>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-            <div *ngIf="obj.valorPromo==0">
-                por: R$ {{obj.valor}}<br>                
-            </div>
-            <button class="btn btn-outline-success w-50" *ngIf="obj.quantidade>0"
-                >
-                comprar</button>
-            <h4 *ngIf="obj.quantidade==0">Sem Estoque</h4>    
-    </div>            
-</div>                
+
+        </div>
+
+    </div>
+
+</div>
